@@ -30,7 +30,6 @@ ALLOWED_HOSTS = [
     'timesexpress.herokuapp.com'
 ]
 
-COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 
 
 # Application definition
@@ -141,11 +140,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')   # address of the folder
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 
 # Media Files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 
 
 ## Do it later - Not done yet
