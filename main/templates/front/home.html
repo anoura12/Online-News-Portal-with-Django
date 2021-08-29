@@ -204,7 +204,7 @@
 								<div class="flex-wr-sb-s m-b-30">
 									<a href="{% url 'news_detail' word=ab.name %}"
 										class="size-w-1 wrap-pic-w hov1 trans-03">
-										<img src="{% static "front/images/c_JYAHXwk.jpeg" %}" alt="IMG">
+										<img src="{{ ab.picurl }}" alt="IMG">
 									</a>
 
 									<div class="size-w-2">
@@ -246,7 +246,7 @@
 								{% if pop.show != 0 %}  <!-- When anyone click/view the news, it will appear. Otherwise not appear -->
 								<div class="flex-wr-sb-s m-b-30">
 									<a href="{% url 'news_detail' word=pop.name %}" class="size-w-1 wrap-pic-w hov1 trans-03">
-										<img src="{% static "front/images/c_JYAHXwk.jpeg" %}" alt="IMG">
+										<img src="{{ pop.picurl }}" alt="IMG">
 									</a>
 
 									<div class="size-w-2">

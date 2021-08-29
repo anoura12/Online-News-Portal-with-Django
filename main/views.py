@@ -25,7 +25,7 @@ def home(request):
     
     site = Main.objects.get(pk=2)
     news = News.objects.filter(act=1).order_by('-pk')  ## for reverse(ordering) need to filter by pk with (-) to get the latest submission first.
-
+    print(news)
     cat = Cat.objects.all()  ## Show categories in footer
     subcat = SubCat.objects.all()  ## for SubMenu in the menu bar
     
