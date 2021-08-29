@@ -28,6 +28,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     'glacial-woodland-71457.herokuapp.com',
     'timesexpress.herokuapp.com',
+    '127.0.0.1'
 ]
 
 
