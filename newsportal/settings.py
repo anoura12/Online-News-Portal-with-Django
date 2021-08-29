@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'glacial-woodland-71457.herokuapp.com',
-    'timesexpress.herokuapp.com'
+    'timesexpress.herokuapp.com',
 ]
 
 
