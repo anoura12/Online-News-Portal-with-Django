@@ -147,7 +147,7 @@
 			<div class="wrap-logo no-banner container">
 			<!-- Logo desktop(Logo in Top Section) Start -->		
 				<div class="logo">
-					<a href="/"><img src="{% static "front/images/Daily News For You Header.png" %}" alt="LOGO"></a> <!-- Logo in Top Section -->	
+					<a href="/"><img src="{% static "front/images/logo.png" %}" alt="LOGO"></a> 
 				</div>
 			<!-- Logo desktop(Logo in Top Section) End -->
 			</div>
@@ -160,7 +160,7 @@
 				<!-- Menu desktop (Menu nav bar) Start -->
 					<nav class="menu-desktop">
 						<a class="logo-stick" href="/">
-							<img src="{{ site.picurl }}" alt="LOGO">
+							<img src="{% static "front/images/logo.png" %}" alt="LOGO">
 						</a>
 
 						<ul class="main-menu justify-content-center">
@@ -309,14 +309,14 @@
 				<div class="row">
 					<div class="col-lg-4 p-b-20">
 						<div class="size-h-3 flex-s-c">
-							<a href="/">
+							<!-- <a href="/">
 								<img class="max-s-full" src="{{ site.picurl2 }}" alt="LOGO">
-							</a>
+							</a> -->
 						</div>
 
 						<div>
 							<p class="f1-s-1 cl11 p-b-16">
-								{{site.about | safe }}
+								<h2>Times Express</h2>
 							</p>
 
 							<p class="f1-s-1 cl11 p-b-16">
@@ -412,7 +412,7 @@
 		<div class="bg11">
 			<div class="container size-h-4 flex-c-c p-tb-15">
 				<span class="f1-s-1 cl0 txt-center">
-					© 2020 / dailynewsforyou | Powered By: Md. Omar Faruk
+					© 2020 / dailynewsforyou | Powered By: Times Express
 				</span>
 			</div>
 		</div>
