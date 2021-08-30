@@ -9,6 +9,7 @@ class Manager(models.Model):
     email = models.TextField(default="")
     ip = models.TextField(default="") # Get User IP Address
     country = models.TextField(default="") # Get User Location
+    is_premium = models.BooleanField(default=False)
         
     def __str__(self):
         return self.name

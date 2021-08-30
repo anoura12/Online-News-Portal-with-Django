@@ -9,13 +9,13 @@ from trending.models import Trending  ### Trending app's model
 import random
 from comment.models import Comment
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger # For pagination
-
+from manager.models import Manager
 # Create your views here. 
 
 
 ###-----#-----### News Details Function For Front (User Interface - Frontend) Start ###-----#-----###
 def news_detail(request,word):
-    
+
     site = Main.objects.get(pk=2)
     news = News.objects.all().order_by('-pk')  ## for reverse(ordering) need to filter by pk with (-) to get the latest submission first.
 
@@ -32,9 +32,19 @@ def news_detail(request,word):
 
     tagname = News.objects.get(name=word).tag    ### For tags
     tag = tagname.split(',')   ## It will divide your tags by comma(,). Can also by space or dot or what i want
+    if not request.user.is_authenticated:
+        return render(request, 'front/premium.html', {'site': site, 'cat': cat, 'subcat': subcat, 'lastnews': lastnews, 'popnews2': popnews2,'trending': trending})
+    else:
+        try:
+            manager = Manager.objects.get(utxt=request.user)
+            if not manager.is_premium:
+                return render(request, 'front/premium.html', {'site': site, 'cat': cat, 'subcat': subcat, 'lastnews': lastnews, 'popnews2': popnews2,'trending': trending})
+        except Manager.DoesNotExist:
+            return render(request, 'front/premium.html', {'site':site, 'cat':cat, 'subcat':subcat, 'lastnews':lastnews, 'popnews2':popnews2, 'trending':trending})
+
 
     ### Count the total view start ###
-    try :
+    try:
 
         mynews = News.objects.get(name=word)
         mynews.show = mynews.show + 1

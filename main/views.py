@@ -136,7 +136,7 @@ def myregister(request):
         email = request.POST.get('email')
         password1 = request.POST.get('password1')
         password2 = request.POST.get('password2')
-
+        premium = request.POST.get('premium')
         if name == "" :
             msg = "Input Your Name"
             return render(request, 'front/msgbox.html', {'msg':msg})
@@ -187,10 +187,13 @@ def myregister(request):
             except:
                 country = "Unknown"
             # Get User Location End
-            
             user = User.objects.create_user(username=uname, email=email, password=password1)
-            b = Manager(name=name, utxt=uname, email=email, ip=ip, country=country)
+            premium = premium is not None
+            b = Manager(name=name, utxt=uname, email=email, ip=ip, country=country, is_premium=premium)
             b.save()
+            user = authenticate(username=uname, password=password1)
+            login(request, user)
+            return redirect('home')
 
     return render(request, 'front/login.html')
 ##--#--## Registration (myregister) Function For Front (User Interface - Frontend) End ##--#--##

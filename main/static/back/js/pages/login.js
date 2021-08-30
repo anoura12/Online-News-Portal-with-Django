@@ -25,6 +25,7 @@ var Login = function() {
             /* Switch Login, Reminder and Register form views */
             var formLogin       = $('#form-login'),
                 formReminder    = $('#form-reminder'),
+                formRegisterPremium    = $('#form-register-premium'),
                 formRegister    = $('#form-register');
 
             $('#link-register-login').click(function(){
@@ -33,6 +34,14 @@ var Login = function() {
 
             $('#link-register').click(function(){
                 switchView(formRegister, formLogin, '');
+            });
+
+             $('#link-register-premium-login').click(function(){
+                switchView(formLogin, formRegisterPremium, 'premium');
+            });
+
+             $('#link-register-premium').click(function(){
+                switchView(formRegisterPremium, formLogin, '');
             });
 
             $('#link-reminder-login').click(function(){
@@ -46,13 +55,21 @@ var Login = function() {
             // If the link includes the hashtag 'register', show the register form instead of login
             if (window.location.hash === '#register') {
                 formLogin.hide();
+                formRegisterPremium.hide();
                 formRegister.show();
             }
 
             // If the link includes the hashtag 'reminder', show the reminder form instead of login
             if (window.location.hash === '#reminder') {
                 formLogin.hide();
+                formRegisterPremium.hide();
                 formReminder.show();
+            }
+
+            if (window.location.hash === '#premium') {
+                formLogin.hide();
+                formReminder.hide();
+                formRegisterPremium.show();
             }
 
             /*
